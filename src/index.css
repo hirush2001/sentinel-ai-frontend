@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: 'Manrope', sans-serif; color: #e7edf6; background: #080d18; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+html { min-width: 320px; background: #080d18; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: radial-gradient(circle at 76% -12%, rgba(33, 86, 112, .18), transparent 34%), #080d18; }
+button, input, select, textarea { font: inherit; }
+button:disabled { cursor: not-allowed; opacity: .5; }
+::selection { background: rgba(85,230,176,.24); color: #fff; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0b1321; }
+::-webkit-scrollbar-thumb { background: #263951; border-radius: 20px; }
+::-webkit-scrollbar-thumb:hover { background: #38516f; }
+
+@layer components {
+  .panel { @apply rounded-2xl border border-line/80 bg-panel/90 shadow-panel; }
+  .panel-soft { @apply rounded-xl border border-line/70 bg-[#0b1423]/80; }
+  .eyebrow { @apply text-[10px] font-extrabold uppercase tracking-[.18em] text-slate-500; }
+  .field { @apply w-full rounded-xl border border-line bg-[#091321] px-3.5 py-3 text-sm text-slate-100 outline-none transition placeholder:text-slate-600 focus:border-emerald-400/60 focus:ring-2 focus:ring-emerald-400/10; }
+  .select-field { @apply field appearance-none pr-9; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-sm font-bold transition duration-150 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-emerald-300 text-[#061510] shadow-glow hover:bg-emerald-200; }
+  .btn-secondary { @apply btn border-line bg-[#142238] text-slate-200 hover:border-slate-500 hover:bg-[#192b43]; }
+  .btn-ghost { @apply btn bg-transparent text-slate-400 hover:bg-white/5 hover:text-white; }
+  .btn-danger { @apply btn border-rose-400/20 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20; }
+  .table-head { @apply border-b border-line/80 text-left text-[10px] font-extrabold uppercase tracking-[.14em] text-slate-500; }
+  .table-cell { @apply border-b border-line/50 px-4 py-3.5 align-middle text-sm text-slate-300; }
+  .nav-link { @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-semibold text-slate-400 transition hover:bg-white/[.045] hover:text-slate-100; }
+  .nav-link-active { @apply bg-emerald-300/[.10] text-emerald-200 ring-1 ring-emerald-300/10; }
+}
+
+.grid-backdrop { background-size: 34px 34px; background-image: linear-gradient(rgba(106, 146, 179, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(106, 146, 179, .045) 1px, transparent 1px); }
+.glow-dot { box-shadow: 0 0 0 4px rgba(85,230,176,.09), 0 0 18px rgba(85,230,176,.55); }
+.pulse-dot { animation: pulseDot 2s ease-in-out infinite; }
+@keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(85,230,176,.28); } 50% { box-shadow: 0 0 0 7px rgba(85,230,176,0); } }
+.toast-enter { animation: toastIn .22s ease-out both; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.modal-backdrop { animation: fadeIn .16s ease-out both; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Three.js viewport */
+.agent-canvas canvas { display: block; width: 100%; height: 100%; outline: none; }
+.agent-canvas { background: radial-gradient(ellipse at 50% 40%, rgba(20,72,91,.24), transparent 58%), linear-gradient(180deg, #0b1726, #09111d); }
+
+@media (max-width: 900px) {
+  .sidebar-label { display: none; }
+}
